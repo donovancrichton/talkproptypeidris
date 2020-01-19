@@ -1,0 +1,17 @@
+\frametitle{Proof Techniques}
+  \framesubtitle{By Appeal to Lemma}
+  Idea: Introduce pre-proven smaller proofs (called a Lemma) to prove a larger
+        proof. \\
+  \begin{itemize}
+    \item \textbf{Lemma 1.} $p \lor \lnot p \equiv \top$. \\
+    \item \textbf{Lemma 2.} $(p \equiv q) \equiv (p \leftrightarrow q)$.
+  \end{itemize}
+  Prove: $(p \leftrightarrow q) \lor \lnot (p \equiv q) \leftrightarrow \top$.
+  \begin{align*}
+    (p \leftrightarrow q) \lor \lnot (p \equiv q) &\leftrightarrow \top
+          &\text{Premise.} \\
+    (p \equiv q) \lor \lnot (p \equiv q) &\equiv \top
+          &\text{Lemma 2.} \\
+    \top &\equiv \top &\text{Lemma 1.} \\
+    & &\qed
+  \end{align*}

@@ -1,0 +1,178 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{minted}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{upquote}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usetikzlibrary{arrows,automata,positioning}
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+
+\title{Practical examples of writing programs and proving theorems in Idris.}
+\author{Donovan Crichton}
+\date{January 2020}
+
+\begin{document}
+ 
+\frame{\titlepage}
+
+\begin{frame}[fragile]
+  \frametitle{Preliminaries}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Propositional Logic}
+  \begin{itemize}
+    \item Concerned with statements of verifiable facts. 
+    \item Used daily by programmers when reasoning about Boolean values.
+  \end{itemize}
+  \begin{tabular}{| c | c | c |}
+  \hline
+  \textbf{Symbol} & \textbf{Meaning} & \textbf{Example} \\
+  \hline
+  T, F & True, False & Boolean values. \\
+  $p, q, r, ...$  & Propositions & Let $p$ = "It is raining." \\
+  $\lnot$ & Negation (Not) & $\lnot p$ \\
+  $\land$ & Conjuction (And) & $p \land q$ \\
+  $\lor$ & Disjunction (Or) & $p \lor q$ \\
+  $\rightarrow$ & Implication (If) & $p \rightarrow q$ \\
+  $\leftrightarrow$ & Bi Implication (Iff) & $p \leftrightarrow q$ \\
+  $\equiv$ & Equivalence & $p \equiv q$ \\
+  $\top$ & Tautology & $p \lor \lnot p \equiv \top$ \\
+  $\bot$ & Contradiction & $p \land \lnot p \equiv \bot$ \\
+  \hline
+  \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Definitions of Connectives}
+  \begin{minipage}{0.32\textwidth}
+    Conjunction (And) \\
+    \begin{tabular}{| c | c | c |}
+    \hline
+    $p$ & $q$ & $p \land q$ \\
+    \hline
+    T & T & T \\
+    T & F & F \\
+    F & T & F \\
+    F & F & F \\
+    \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    Disjunction (Or) \\
+    \begin{tabular}{| c | c | c |}
+    \hline
+    $p$ & $q$ & $p \lor q$ \\
+    \hline
+    T & T & T \\
+    T & F & T \\
+    F & T & T \\
+    F & F & F \\
+    \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    Negation (Not) \\
+    \begin{tabular}{| c | c |}
+    \hline
+    $p$ & $\lnot p$ \\
+    \hline
+    T & F \\
+    F & T \\
+    \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    $\;$ \\
+    Implication (If) \\
+    \begin{tabular}{| c | c | c |}
+    \hline
+    $p$ & $q$ & $p \rightarrow q$ \\
+    \hline
+    T & T & T \\
+    T & F & F \\
+    F & T & T \\
+    F & F & T \\
+    \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    $\;$ \\
+    Bi Implication (Iff) \\
+    \begin{tabular}{| c | c | c |}
+    \hline
+    $p$ & $q$ & $p \leftrightarrow q$ \\
+    \hline
+    T & T & T \\
+    T & F & F \\
+    F & T & F \\
+    F & F & T \\
+    \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    $\;$ \\
+    Logical Equivalence \\
+    \begin{tabular}{| c | c | c |}
+    \hline
+    $p$ & $q$ & $p \equiv q$ \\
+    \hline
+    T & T & T \\
+    T & F & F \\
+    F & T & F \\
+    F & F & T \\
+    \hline
+    \end{tabular}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Proof Techniques}
+  \framesubtitle{By Exhaustion}
+  Idea: Prove by enumerating all possible cases. \\
+  Prove: $(\lnot p \lor q) \leftrightarrow (p \rightarrow q)$.
+  \begin{tabular}{| c | c | c | c | c | c |}
+  \hline
+  $p$ & $q$ & $\lnot p$ & $ \lnot p \lor q$ & $p \rightarrow q$
+      & $(\lnot p \lor q) \leftrightarrow (p \rightarrow q)$ \\
+  \hline
+  T & T & F & T & T & T \\
+  T & F & F & F & F & T \\
+  F & T & T & T & T & T \\
+  F & F & T & T & T & T \\
+  \hline
+  \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Proof Techniques}
+  \framesubtitle{By Appeal to Lemma}
+  Idea: Introduce pre-proven smaller proofs (called a Lemma) to prove a larger
+        proof. \\
+  \begin{itemize}
+    \item \textbf{Lemma 1.} $p \lor \lnot p \equiv \top$. \\
+    \item \textbf{Lemma 2.} $(p \equiv q) \equiv (p \leftrightarrow q)$. 
+  \end{itemize} 
+  Prove: $(p \leftrightarrow q) \lor \lnot (p \equiv q) \leftrightarrow \top$.
+  \begin{align*}
+    (p \leftrightarrow q) \lor \lnot (p \equiv q) &\leftrightarrow \top
+          &\text{Premise.} \\
+    (p \equiv q) \lor \lnot (p \equiv q) &\equiv \top
+          &\text{Lemma 2.} \\
+    \top &\equiv \top &\text{Lemma 1.} \\
+    & &\qed
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{First Order Logic}
+  Extends propositional logic 
+\end{frame}
+  
+\end{document}
