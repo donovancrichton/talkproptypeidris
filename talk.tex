@@ -171,8 +171,92 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{First Order Logic}
-  Extends propositional logic 
+  \frametitle{First Order (or Predicate) Logic}
+  Extends propositional logic from reasoning about propositions to reasoning
+  about sets. \\
+  \begin{tabular}{| c | c | c |}
+  \hline
+  \textbf{Symbol} & \textbf{Meaning} & \textbf{Example} \\
+  \hline
+  $X, Y, Z, ...$ & Set Variables & Let $Y$ = $\{2, 3, 4\}$. \\
+  $x, y, z, ...$ & Member Variables & Let $z$ = 2.\\
+  $P(x), Q(y), ...$ & Predicate Variables & Let $Q(y)$ = $y > 1$ .\\
+  $\forall x \in X, P(x)$ & Universal Quantifier & $\forall y \in Y, Q(y)$ \\
+  $\exists x \in X, P(x)$ & Existential Quantifier & $\exists z \in Y, z = 2$\\
+  \hline
+  \end{tabular}
 \end{frame}
-  
+
+\begin{frame}
+  \frametitle{Proof Techniques}
+  \framesubtitle{Induction}
+  \begin{itemize}
+    \item Allows us to prove that a property $P(x)$ holds $\forall x \in X$.
+          Provided $X$ is well-founded.
+    \item Informally well-founded means ``no infinite decreasing chains''.
+  \end{itemize}
+   Prove: $\forall n \in \mathbb{N}(\exists y \in \mathbb{N}, y = n + 1)$ \\
+   \begin{align*}
+   y &= 0 + 1 &\text{Base Case. $n = 0$} \\
+     &= 1 &\qed \\
+   \\
+   y &= (k + 1) + 1 &\text{Inductive Step. $n = k + 1$} \\
+     &= k + 2 &\qed
+   \end{align*}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Why should I care?}
+  \begin{itemize}
+    \item Types are just sets with flavour!
+    \item \textbf{Bool} = $\{True, False\}$
+    \item \textbf{Int} = $\{-\infty, ..., -2, -1, 0, 1, 2, 3, ..., \infty\}$
+    \item Mixing of flavours is not allowed!
+    \item $\{True, -2, "Hello", 1\}$ Can really only be said to be a "thing"
+          flavoured set.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Propositions as Types. Proofs as Programs}
+  \begin{itemize}
+    \item The Curry-Howard-Lambeck correspondence is well known amongst
+          Haskell programmers for the correspondence between categories and
+          programming.
+    \item The correspondence to logic is less often discussed.
+    \item Holds for any language that is based on a typed lambda calculus.
+  \end{itemize}
+  Idea: A type is a proposition. This is True if, and only if, we can construct
+        an element of that type.
+\end{frame}
+
+\begin{frame}
+  \frametitle{What is truth?}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Curry-Howard in Idris}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vacuous Truths}
+  Statements that are true because the premise cannot be satisfied. \\
+  Often arise as a base case in proofs by induction.
+  \begin{itemize}
+    \item $F \rightarrow q \equiv T$
+    \item $\forall x \in \{\} P(x)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Natural Numbers}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some small examples in Idris}
+\end{frame}
+
+
+
 \end{document}
