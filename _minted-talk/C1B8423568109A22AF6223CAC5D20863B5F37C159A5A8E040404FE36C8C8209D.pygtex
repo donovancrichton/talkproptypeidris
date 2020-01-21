@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kr}{data} \PYG{k+kt}{Nat} \PYG{o+ow}{:} \PYG{k+kt}{Type} \PYG{k+kr}{where}
+  \PYG{n+nf}{Z} \PYG{o+ow}{:} \PYG{k+kt}{Nat}
+  \PYG{n+nf}{S} \PYG{o+ow}{:} \PYG{o+ow}{(}k \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Nat}
+\end{Verbatim}

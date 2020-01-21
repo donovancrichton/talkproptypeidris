@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+  \PYG{o+ow}{(+)} \PYG{o+ow}{:} \PYG{k+kt}{Nat} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Nat} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Nat}
+  \PYG{k+kt}{Z}     \PYG{o+ow}{+} y \PYG{o+ow}{=} \PYG{k+kt}{Z}
+  \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} \PYG{o+ow}{+} y \PYG{o+ow}{=} \PYG{k+kt}{S} \PYG{o+ow}{(}k \PYG{o+ow}{+} y\PYG{o+ow}{)}
+
+  \PYG{esc}{\textcolor{olive}{$\forall x, y \in \mathbb{N}. x + y = y + x$}}
+  \PYG{n+nf}{plusIsCommutative} \PYG{o+ow}{:} \PYG{o+ow}{(}x, y \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{+} y \PYG{o+ow}{=} y \PYG{o+ow}{+} x
+  plusIsCommutative x y \PYG{o+ow}{=} \PYG{o+ow}{?}what \PYG{esc}{$\frac{x, y : Nat}{what : x + y = y + x}$}
+
+  \PYG{n+nf}{plusIsCommutative} \PYG{o+ow}{:} \PYG{o+ow}{(}x, y \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{+} y \PYG{o+ow}{=} y \PYG{o+ow}{+} x
+  plusIsCommutative \PYG{k+kt}{Z} y \PYG{o+ow}{=} \PYG{o+ow}{?}t1 \PYG{esc}{\textcolor{forest}{$\frac{x, y, : Nat}{t1 : y = y + Z}$}}
+  plusIsCommutative \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} y \PYG{o+ow}{=} \PYG{o+ow}{?}t2 \PYG{esc}{$\frac{x, y : Nat}{t2 : S(k + y) = y + (S\;k)}$}
+\end{Verbatim}

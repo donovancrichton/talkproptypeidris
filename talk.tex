@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[usenames,dvipsnames]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{minted}
@@ -170,7 +170,7 @@
   \end{align*}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{First Order (or Predicate) Logic}
   Extends propositional logic from reasoning about propositions to reasoning
   about sets. \\
@@ -187,7 +187,7 @@
   \end{tabular}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Proof Techniques}
   \framesubtitle{Induction}
   \begin{itemize}
@@ -206,7 +206,7 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Why should I care?}
   \begin{itemize}
     \item Types are just sets with flavour!
@@ -218,45 +218,116 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Propositions as Types. Proofs as Programs}
   \begin{itemize}
     \item The Curry-Howard-Lambeck correspondence is well known amongst
           Haskell programmers for the correspondence between categories and
           programming.
-    \item The correspondence to logic is less often discussed.
+    \item The correspondence with logic is less often discussed.
     \item Holds for any language that is based on a typed lambda calculus.
   \end{itemize}
-  Idea: A type is a proposition. This is True if, and only if, we can construct
-        an element of that type.
+  Idea: A type is a propostion.
 \end{frame}
 
-\begin{frame}
-  \frametitle{What is truth?}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Curry-Howard in Idris}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Vacuous Truths}
-  Statements that are true because the premise cannot be satisfied. \\
-  Often arise as a base case in proofs by induction.
+\begin{frame}[fragile]
+  \frametitle{What is Truth?}
+    Propositional Logic and Predicate Logic consider truth to be the Boolean
+     value ``True''. These logics also have a notion of vacuous truth. \\
+    $\;$ \\
+    \begin{minipage}{0.32\textwidth}
+    \begin{tabular}{| c | c | c |}
+    \hline
+    $p$ & $q$ & $p \rightarrow q$ \\
+    \hline
+    T & T & T \\
+    T & F & F \\
+    F & T & T \\
+    F & F & T \\
+    \hline
+    \end{tabular}
+    \end{minipage}
+  $\;$\\ \\
+  In Predicate Logic: $\forall x \in \{\} P(x)$ is also true.
   \begin{itemize}
-    \item $F \rightarrow q \equiv T$
-    \item $\forall x \in \{\} P(x)$.
+   \item If a type is a proposition, what does it mean for it to be true?
+   \item A type is true iff it is inhabited with a value.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Natural Numbers}
+\begin{frame}[fragile]
+  \frametitle{Curry-Howard in Idris}
+    \begin{tabular}{c|c|c|c}
+    \textbf{Logic Term} & \textbf{Logic Symbol} & \textbf{Idris Symbol}
+      & \textbf{Idris Type} \\
+    \hline
+      Implication & p $\Rightarrow$ q & p \mintinline{idris}{->} q
+      & Arrow \\
+      Conjunction & p $\land$ q & \mintinline{idris}{(p, q)}
+      & Pair (Product) \\
+      Disjunction & p $\lor$ q & \mintinline{idris}{Either p q}
+      & Enum (Sum)\\
+      Negation & $\lnot$ p & \mintinline{idris}{p -> Void} &
+      Void Type \\
+      IFF/Eq & p $\Leftrightarrow$ q, p $\equiv$ q & \mintinline{idris}{(p -> q, q -> p)}
+      & Pair Arrows \\
+      Universal & $\forall$ x. P x &
+      \mintinline{idris}{p -> Type} & $\Pi$ Type \\
+      Existential & $\exists$ x. P x
+      & \mintinline{idris}{(x ** P x)} & $\Sigma$ Type \\
+      \hline
+            = & = & \mintinline{idris}{p = q} & Type Equality \\
+            $\top$ & True & \mintinline{idris}{()} & Unit Type \\
+            $\bot$ & False & \mintinline{idris}{Void} & Uninhabited
+    \end{tabular}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Some small examples in Idris}
+\begin{frame}[fragile]
+\frametitle{Natural Numbers}
+Let $\mathbb{N}$ denote the set of natural numbers where: \\
+1. Zero (0) is a natural number. \\
+2. If $k$ is a natural number, then the successor of $k$ is also a natural
+        number.
+
+\begin{minted}[escapeinside=||]{idris}
+data Nat : Type where
+  Z : Nat
+  S : (k : Nat) -> Nat
+\end{minted}
+\begin{itemize}
+  \item \textbf{Nat : Type} is the type constructor.
+  \item \textbf{S} and \textbf{K} are the value constructors.
+\end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Proving commutativity on addition in Idris}
+  \begin{minted}[escapeinside=||]{idris}
+  (+) : Nat -> Nat -> Nat
+  Z     + y = Z
+  (S k) + y = S (k + y)
+
+  |\textcolor{olive}{$\forall x, y \in \mathbb{N}. x + y = y + x$}|
+  plusIsCommutative : (x, y : Nat) -> x + y = y + x
+  plusIsCommutative x y = ?what |\textcolor{red}{$\frac{x, y : Nat}{what : x + y = y + x}$}|
+  
+  plusIsCommutative : (x, y : Nat) -> x + y = y + x
+  plusIsCommutative Z y = ?t1 |\textcolor{red}{$\frac{x, y : Nat}{t1 : y = y + Z}$}|
+  plusIsCommutative (S k) y = ?t2 |\textcolor{red}{$\frac{x, y : Nat}{t2 : S(k + y) = y + (S\;k)}$}|
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Introducing Lemmas in Idris}
+  \begin{minted}[escapeinside=||]{idris}
+  |\textcolor{red}{$\frac{x, y : Nat}{t1 : y = y + Z}$}|
+  lemma1 : (x : Nat) -> x = x + Z
+  lemma1 Z = ?t1
+  \end{minted}
+\end{frame}
 
 
 \end{document}

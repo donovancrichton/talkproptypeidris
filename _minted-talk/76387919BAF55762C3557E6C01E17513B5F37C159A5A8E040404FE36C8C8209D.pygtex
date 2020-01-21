@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+  \PYG{o+ow}{(+)} \PYG{o+ow}{:} \PYG{k+kt}{Nat} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Nat} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Nat}
+  \PYG{k+kt}{Z}     \PYG{o+ow}{+} y \PYG{o+ow}{=} \PYG{k+kt}{Z}
+  \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} \PYG{o+ow}{+} y \PYG{o+ow}{=} \PYG{k+kt}{S} \PYG{o+ow}{(}k \PYG{o+ow}{+} y\PYG{o+ow}{)}
+
+  \PYG{esc}{                     $\forall x, y \in \mathbb{N}. x + y = y + x$}
+  \PYG{n+nf}{plusIsCommutative} \PYG{o+ow}{:} \PYG{o+ow}{(}x, y \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{+} y \PYG{o+ow}{=} y \PYG{o+ow}{+} x
+  plusIsCommutative x y \PYG{o+ow}{=} \PYG{o+ow}{?}what
+  \PYG{esc}{$\frac{\text{\mintinline{idris}{x, y : Nat}}{}$}
+  \PYG{o+ow}{\PYGZpc{}\PYGZob{}\PYGZbs{}}mintinline\PYG{o+ow}{\PYGZob{}}idris\PYG{o+ow}{\PYGZcb{}\PYGZob{}}what \PYG{o+ow}{:} x \PYG{o+ow}{+} y \PYG{o+ow}{=} y \PYG{o+ow}{+} x\PYG{o+ow}{\PYGZcb{}\PYGZcb{}\PYGZdl{}}\PYG{err}{|}
+\end{Verbatim}
