@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+  \PYG{n+nf}{plusIsCommutative} \PYG{o+ow}{:} \PYG{o+ow}{(}x, y \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{+} y \PYG{o+ow}{=} y \PYG{o+ow}{+} x
+  plusIsCommutative \PYG{k+kt}{Z} y \PYG{o+ow}{=} \PYG{o+ow}{?}t1 \PYG{esc}{\textcolor{red}{$\frac{x, y : Nat}{t1 : y = y + Z}$}}
+  plusIsCommutative \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} y \PYG{o+ow}{=} \PYG{o+ow}{?}t2 \PYG{esc}{\textcolor{red}{$\frac{x, y : Nat}{t2 : S(k + y) = y + (S\;k)}$}}
+
+  \PYG{n+nf}{plusIsCommutative} \PYG{o+ow}{:} \PYG{o+ow}{(}x, y \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{+} y \PYG{o+ow}{=} y \PYG{o+ow}{+} x
+  plusIsCommutative \PYG{k+kt}{Z} y \PYG{o+ow}{=} lemma1 y
+  plusIsCommutative \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} y \PYG{o+ow}{=} \PYG{o+ow}{?}t2 \PYG{esc}{\textcolor{red}{$\frac{x, y : Nat}{t2 : S(k + y) = y + (S\;k)}$}}
+
+  \PYG{n+nf}{lemma2} \PYG{o+ow}{:} \PYG{o+ow}{(}x, y \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{S} \PYG{o+ow}{(}k \PYG{o+ow}{+} y\PYG{o+ow}{)} \PYG{o+ow}{=} y \PYG{o+ow}{+} \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)}
+  lemma2 \PYG{k+kt}{Z} \PYG{o+ow}{=} \PYG{o+ow}{?}lemhole1 \PYG{esc}{\textcolor{red}{$\frac{y : Nat}{S\; y = S\; y$}}
+  lemma2 \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} \PYG{o+ow}{=} \PYG{o+ow}{?}lemhole2
+\end{Verbatim}

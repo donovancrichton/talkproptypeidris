@@ -38,7 +38,7 @@
   T, F & True, False & Boolean values. \\
   $p, q, r, ...$  & Propositions & Let $p$ = "It is raining." \\
   $\lnot$ & Negation (Not) & $\lnot p$ \\
-  $\land$ & Conjunction (And) & $p \land q$ \\
+  $\land$ & Conjuction (And) & $p \land q$ \\
   $\lor$ & Disjunction (Or) & $p \lor q$ \\
   $\rightarrow$ & Implication (If) & $p \rightarrow q$ \\
   $\leftrightarrow$ & Bi Implication (Iff) & $p \leftrightarrow q$ \\
@@ -227,7 +227,7 @@
     \item The correspondence with logic is less often discussed.
     \item Holds for any language that is based on a typed lambda calculus.
   \end{itemize}
-  Idea: A type is a proposition.
+  Idea: A type is a propostion.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -368,7 +368,7 @@ data Nat : Type where
   lemma1 Z = Refl
   lemma1 (S k) =
     let rec = lemma1 k
-    in rewrite rec in Refl
+    im rewrite rec in Refl
   \end{minted}
 \end{frame}
 
@@ -418,7 +418,7 @@ data Nat : Type where
   lemma1 Z = Refl
   lemma1 (S k) =
     let rec = lemma1 k
-    in rewrite rec in Refl
+    im rewrite rec in Refl
 
   lemma2 : (x, y : Nat) -> S (k + y) = y + (S k)
   lemma2 Z y = Refl

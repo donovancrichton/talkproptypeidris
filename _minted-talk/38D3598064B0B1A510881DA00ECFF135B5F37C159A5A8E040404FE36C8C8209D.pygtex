@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+implementation \PYG{k+kt}{GeorgeFunctor} \PYG{k+kt}{Maybe} \PYG{k+kr}{where}
+  gmap f \PYG{k+kt}{Nothing} \PYG{o+ow}{=} \PYG{k+kt}{Nothing}
+  gmap f \PYG{o+ow}{(}\PYG{k+kt}{Just} x\PYG{o+ow}{)} \PYG{o+ow}{=} \PYG{k+kt}{Just} \PYG{o+ow}{(}f x\PYG{o+ow}{)}
+
+  gIdentLaw \PYG{k+kt}{Nothing} \PYG{o+ow}{=} \PYG{k+kt}{Refl}
+  gIdentLaw \PYG{o+ow}{(}\PYG{k+kt}{Just} x\PYG{o+ow}{)} \PYG{o+ow}{=} \PYG{k+kt}{Refl}
+
+  gCompLaw \PYG{k+kt}{Nothing} g f \PYG{o+ow}{=} \PYG{k+kt}{Refl}
+  gCompLaw \PYG{o+ow}{(}\PYG{k+kt}{Just} x\PYG{o+ow}{)} g f \PYG{o+ow}{=} \PYG{k+kt}{Refl}
+\end{Verbatim}

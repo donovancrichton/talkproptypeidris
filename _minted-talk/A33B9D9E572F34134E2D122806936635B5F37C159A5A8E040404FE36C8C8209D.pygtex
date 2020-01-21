@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+  \PYG{n+nf}{randElem} \PYG{o+ow}{:} \PYG{o+ow}{(}n \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o+ow}{(}xs \PYG{o+ow}{:} \PYG{k+kt}{List} a\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} a
+  randElem x xs \PYG{o+ow}{=} index \PYG{o+ow}{(}mod n \PYG{o+ow}{(}length xs\PYG{o+ow}{))} xs
+
+  \PYG{esc}{\textcolor{red}{When checking argument}} ok \PYG{esc}{\textcolor{red}{to function index}}
+  \PYG{esc}{\textcolor{red}{Can't find v/ of type}} \PYG{k+kt}{InBounds} \PYG{o+ow}{(}mod n \PYG{o+ow}{(}length xs\PYG{o+ow}{))} xs
+\end{Verbatim}

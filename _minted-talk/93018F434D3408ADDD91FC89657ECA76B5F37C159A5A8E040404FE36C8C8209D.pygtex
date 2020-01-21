@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+  \PYG{k+kr}{data} \PYG{k+kt}{InBounds} \PYG{o+ow}{:} \PYG{o+ow}{(}k \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o+ow}{(}xs \PYG{o+ow}{:} \PYG{k+kt}{List} a\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Type} \PYG{k+kr}{where}
+    \PYG{n+nf}{InFirst} \PYG{o+ow}{:} \PYG{k+kt}{InBounds} \PYG{l+m+mi}{0} \PYG{o+ow}{(}x \PYG{o+ow}{::} xs\PYG{o+ow}{)}
+    \PYG{n+nf}{InLater} \PYG{o+ow}{:} \PYG{k+kt}{InBounds} k xs \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{InBounds} \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} \PYG{o+ow}{(}x \PYG{o+ow}{::} xs\PYG{o+ow}{)}
+
+  \PYG{k+kr}{data} \PYG{k+kt}{LTE} \PYG{o+ow}{:} \PYG{o+ow}{(}n \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o+ow}{(}m \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Type} \PYG{k+kr}{where}
+    \PYG{n+nf}{LTEZero} \PYG{o+ow}{:} \PYG{k+kt}{LTE} \PYG{k+kt}{Z} m
+    \PYG{n+nf}{LTESucc} \PYG{o+ow}{:} \PYG{k+kt}{LTE} n m \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{LTE} \PYG{o+ow}{(}\PYG{k+kt}{S} n\PYG{o+ow}{)} \PYG{o+ow}{(}\PYG{k+kt}{S} m\PYG{o+ow}{)}
+
+  \PYG{k+kr}{data} \PYG{k+kt}{NonEmpty} \PYG{o+ow}{:} \PYG{o+ow}{(}xs \PYG{o+ow}{:} \PYG{k+kt}{List} a\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Type} \PYG{k+kr}{where}
+    \PYG{n+nf}{IsNonEmpty} \PYG{o+ow}{:} \PYG{k+kt}{NonEmpty} \PYG{o+ow}{(}x \PYG{o+ow}{::} xs\PYG{o+ow}{)}
+
+  \PYG{n+nf}{randElem} \PYG{o+ow}{:} \PYG{o+ow}{(}n \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o+ow}{(}xs \PYG{o+ow}{:} \PYG{k+kt}{List} a\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} a
+  randElem x xs \PYG{o+ow}{=} index \PYG{o+ow}{(}mod n \PYG{o+ow}{(}length xs\PYG{o+ow}{))} xs
+\end{Verbatim}

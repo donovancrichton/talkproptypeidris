@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+  \PYG{esc}{\textcolor{red}{$\frac{x, y : Nat}{t1 : y = y + Z}$}}
+  \PYG{n+nf}{lemma1} \PYG{o+ow}{:} \PYG{o+ow}{(}x \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{=} x \PYG{o+ow}{+} \PYG{k+kt}{Z}
+  lemma1 \PYG{k+kt}{Z} \PYG{o+ow}{=} \PYG{o+ow}{?}lemhole1 \PYG{esc}{\textcolor{red}{$\frac{\;}{lemhole1 : Z = Z$}}
+  lemma1 \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} \PYG{o+ow}{=} \PYG{o+ow}{?}lemhole2
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+interface \PYG{k+kt}{GeorgeFunctor} \PYG{o+ow}{(}f \PYG{o+ow}{:} \PYG{k+kt}{Type} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Type}\PYG{o+ow}{)} \PYG{k+kr}{where}
+  \PYG{n+nf}{gmap} \PYG{o+ow}{:} \PYG{o+ow}{(}a \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} b\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} f a \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} f b
+  \PYG{n+nf}{gIdentLaw} \PYG{o+ow}{:} \PYG{o+ow}{(}xs \PYG{o+ow}{:} \PYG{o+ow}{(}f a\PYG{o+ow}{))} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
+              gmap \PYG{k+kt}{Prelude}\PYG{o+ow}{.}\PYG{k+kt}{Basics}\PYG{o+ow}{.}id xs \PYG{o+ow}{=} id xs
+  \PYG{n+nf}{gCompLaw} \PYG{o+ow}{:} \PYG{o+ow}{(}xs \PYG{o+ow}{:} \PYG{o+ow}{(}f a\PYG{o+ow}{))} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o+ow}{(}g \PYG{o+ow}{:} b \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} c\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
+             \PYG{o+ow}{(}h \PYG{o+ow}{:} a \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} b\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}}
+             gmap \PYG{o+ow}{(}g \PYG{o+ow}{.} h\PYG{o+ow}{)} xs \PYG{o+ow}{=} \PYG{o+ow}{(}gmap g \PYG{o+ow}{.} gmap h\PYG{o+ow}{)} xs
+\end{Verbatim}

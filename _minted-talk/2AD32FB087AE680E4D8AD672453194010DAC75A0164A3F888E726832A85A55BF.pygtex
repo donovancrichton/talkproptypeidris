@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+   \PYG{k+kr}{data} \PYG{o+ow}{(=)} \PYG{o+ow}{:} \PYG{o+ow}{(}x \PYG{o+ow}{:} \PYG{k+kt}{A}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{o+ow}{(}y \PYG{o+ow}{:} \PYG{k+kt}{B}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} \PYG{k+kt}{Type} \PYG{k+kr}{where}
+     \PYG{n+nf}{Refl} \PYG{o+ow}{:} x \PYG{o+ow}{=} x
+\end{Verbatim}

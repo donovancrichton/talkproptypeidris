@@ -1,16 +1,13 @@
-\frametitle{Proving commutativity on addition in Idris}
-  \begin{minted}[escapeinside=||]{idris}
-  (+) : Nat -> Nat -> Nat
-  Z     + y = Z
-  (S k) + y = S (k + y)
-
-  |\textcolor{olive}{$\forall x, y \in \mathbb{N}. x + y = y + x$}|
-  plusIsCommutative : (x, y : Nat) -> x + y = y + x
-  plusIsCommutative x y = ?what |\textcolor{red}{$\frac{x, y : Nat}{what : x + y = y + x}$}|
-
-  plusIsCommutative : (x, y : Nat) -> x + y = y + x
-  plusIsCommutative Z y = ?t1 |\textcolor{red}{$\frac{x, y : Nat}{t1 : y = y + Z}$}|
-  plusIsCommutative (S k) y = ?t2 |\textcolor{red}{$\frac{x, y : Nat}{t2 : S(k + y) = y + (S\;k)}$}|
-  \end{minted}
-
-
+\frametitle{In Summary...}
+\begin{itemize}
+  \item We can directly map proofs in mathematical logic to proofs in
+          dependently typed functional languages.
+  \item We can write correct definitions of category theoretic concepts such as
+          function, monad, applicative etc.
+  \item Writing proofs can be arduous at first, until you build up the
+          intuition.
+  \item Proving things gives us the strongest guarantee of correctness
+        possible.
+  \item More research needs to be undertaken regarding proofs around monads,
+        particularly the IO monad.
+\end{itemize}

@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+  \PYG{esc}{\textcolor{red}{$\frac{k : Nat\;\;\;rec : k = k + Z}{lemhole2 : S\;k = S\;(k + Z)}$}}
+  \PYG{n+nf}{lemma1} \PYG{o+ow}{:} \PYG{o+ow}{(}x \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{=} x \PYG{o+ow}{+} \PYG{k+kt}{Z}
+  lemma1 \PYG{k+kt}{Z} \PYG{o+ow}{=} \PYG{k+kt}{Refl}
+  lemma1 \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} \PYG{o+ow}{=}
+    \PYG{k+kr}{let} rec \PYG{o+ow}{=} lemma1 k
+    \PYG{k+kr}{in} \PYG{k+kr}{rewrite} rec \PYG{k+kr}{in} \PYG{o+ow}{?}lemhole2
+    \PYG{esc}{\textcolor{red}{$\frac{k : Nat\;\;\;rec : k = k + Z\;\;\;\_rewrite\_rule : k = k + Z}{lemhole2 : S\;(k + Z) = S\;(k + Z)}$}}
+
+  \PYG{n+nf}{lemma1} \PYG{o+ow}{:} \PYG{o+ow}{(}x \PYG{o+ow}{:} \PYG{k+kt}{Nat}\PYG{o+ow}{)} \PYG{o+ow}{\PYGZhy{}\PYGZgt{}} x \PYG{o+ow}{=} x \PYG{o+ow}{+} \PYG{k+kt}{Z}
+  lemma1 \PYG{k+kt}{Z} \PYG{o+ow}{=} \PYG{k+kt}{Refl}
+  lemma1 \PYG{o+ow}{(}\PYG{k+kt}{S} k\PYG{o+ow}{)} \PYG{o+ow}{=}
+    \PYG{k+kr}{let} rec \PYG{o+ow}{=} lemma1 k
+    \PYG{k+kr}{in} \PYG{k+kr}{rewrite} rec \PYG{k+kr}{in} \PYG{k+kt}{Refl}
+\end{Verbatim}
